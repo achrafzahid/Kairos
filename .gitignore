@@ -1,4 +1,5 @@
 alpaca*
 .venv*
+.venv
 *.venv
 venv*
