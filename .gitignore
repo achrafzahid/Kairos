@@ -33,6 +33,8 @@ code/brain/src/parsed/
 code/brain/src/tensors/
 code/brain/src/pcap/
 code/brain/src/**/__pycache__/
+code/brain/src/DeepLOB/*.pth
+code/brain/src/DeepLOB/*.pt
 code/brain/src/DeepLOB/*.ckpt
 code/brain/src/DeepLOB/*.onnx
 
