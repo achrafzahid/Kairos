@@ -1,17 +1,14 @@
-from alpaca.data.requests import CryptoBarsRequest
-from alpaca.data.timeframe import TimeFrame
-from datetime import datetime
+from iex_cppparser import parse_dates
+from iex_cppparser import compile_cpp
 
-# Creating request object
-request_params = CryptoBarsRequest(
-  symbol_or_symbols=["BTC/USD"],
-  timeframe=TimeFrame.Day,
-  start=datetime(2022, 9, 1),
-  end=datetime(2022, 9, 7)
-)
-
-# Retrieve daily bars for Bitcoin in a DataFrame and printing it
-btc_bars = client.get_crypto_bars(request_params)
-
-# Convert to dataframe
-btc_bars.df
+if __name__ == "__main__" :
+# Download and parse data over a date   range
+    parse_dates(
+        start_date="2024-07-05", 
+        end_date="2024-07-05", 
+        download_dir="./pcap", 
+        parsed_folder="./parsed", 
+        symbol="symbols.txt", 
+        download=True, 
+        # split=True # CRITICAL for laptops: Prevents memory crashes
+    )

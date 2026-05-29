@@ -1,0 +1,420 @@
+Executing Multi-Horizon DeepLOB on: cuda
+Found 30 dates -> train 20 / val 5 / test 5 days
+Training on 58 day/ticker pairs | Validating on 12 | Testing on 12
+
+[Epoch 1/50] Starting Training...
+Epoch 1 Completed | Avg Train Loss: 2.1356
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.4618 | Precision: 0.5177 | Predicted: {np.int64(0): 3827, np.int64(1): 96964, np.int64(2): 61996} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.4555 | Precision: 0.5124 | Predicted: {np.int64(0): 3806, np.int64(1): 96972, np.int64(2): 62009} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.4469 | Precision: 0.4801 | Predicted: {np.int64(0): 5418, np.int64(1): 96969, np.int64(2): 60400} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+>>> NEW BEST MODEL SAVED! <<<
+
+[Epoch 2/50] Starting Training...
+Epoch 2 Completed | Avg Train Loss: 2.1975
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.5369 | Precision: 0.5378 | Predicted: {np.int64(0): 43421, np.int64(1): 59348, np.int64(2): 60018} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.5539 | Precision: 0.6321 | Predicted: {np.int64(0): 81310, np.int64(1): 21459, np.int64(2): 60018} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.4989 | Precision: 0.6153 | Predicted: {np.int64(0): 89326, np.int64(1): 13443, np.int64(2): 60018} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+>>> NEW BEST MODEL SAVED! <<<
+
+[Epoch 3/50] Starting Training...
+Epoch 3 Completed | Avg Train Loss: 2.1374
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.4594 | Precision: 0.6058 | Predicted: {np.int64(0): 264, np.int64(1): 98231, np.int64(2): 64292} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.4663 | Precision: 0.6278 | Predicted: {np.int64(0): 381, np.int64(1): 103058, np.int64(2): 59348} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.4503 | Precision: 0.5018 | Predicted: {np.int64(0): 122, np.int64(1): 103206, np.int64(2): 59459} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 4/50] Starting Training...
+Epoch 4 Completed | Avg Train Loss: 2.1281
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.2799 | Precision: 0.3891 | Predicted: {np.int64(0): 39993, np.int64(1): 328, np.int64(2): 122466} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.2778 | Precision: 0.3731 | Predicted: {np.int64(0): 39903, np.int64(1): 409, np.int64(2): 122475} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.2764 | Precision: 0.3776 | Predicted: {np.int64(0): 40265, np.int64(1): 603, np.int64(2): 121919} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 5/50] Starting Training...
+Epoch 5 Completed | Avg Train Loss: 2.2085
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.5418 | Precision: 0.5355 | Predicted: {np.int64(0): 34279, np.int64(1): 66141, np.int64(2): 62367} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.5324 | Precision: 0.5263 | Predicted: {np.int64(0): 34281, np.int64(1): 66140, np.int64(2): 62366} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.5124 | Precision: 0.5067 | Predicted: {np.int64(0): 34318, np.int64(1): 66141, np.int64(2): 62328} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 6/50] Starting Training...
+Epoch 6 Completed | Avg Train Loss: 2.2967
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.5325 | Precision: 0.5309 | Predicted: {np.int64(0): 46629, np.int64(1): 51221, np.int64(2): 64937} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.5254 | Precision: 0.5238 | Predicted: {np.int64(0): 46629, np.int64(1): 51306, np.int64(2): 64852} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.5121 | Precision: 0.5104 | Predicted: {np.int64(0): 46629, np.int64(1): 51517, np.int64(2): 64641} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 7/50] Starting Training...
+Epoch 7 Completed | Avg Train Loss: 2.2688
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.5961 | Precision: 0.6080 | Predicted: {np.int64(0): 67099, np.int64(1): 42381, np.int64(2): 53307} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.5851 | Precision: 0.5965 | Predicted: {np.int64(0): 67096, np.int64(1): 42382, np.int64(2): 53309} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.5604 | Precision: 0.5704 | Predicted: {np.int64(0): 67044, np.int64(1): 42377, np.int64(2): 53366} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+>>> NEW BEST MODEL SAVED! <<<
+
+[Epoch 8/50] Starting Training...
+Epoch 8 Completed | Avg Train Loss: 2.1171
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.5991 | Precision: 0.5956 | Predicted: {np.int64(0): 48188, np.int64(1): 55901, np.int64(2): 58698} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.5921 | Precision: 0.5887 | Predicted: {np.int64(0): 48193, np.int64(1): 55939, np.int64(2): 58655} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.5710 | Precision: 0.5677 | Predicted: {np.int64(0): 48194, np.int64(1): 55984, np.int64(2): 58609} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+>>> NEW BEST MODEL SAVED! <<<
+
+[Epoch 9/50] Starting Training...
+Epoch 9 Completed | Avg Train Loss: 2.2383
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.5393 | Precision: 0.6113 | Predicted: {np.int64(0): 15711, np.int64(1): 58261, np.int64(2): 88815} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.5354 | Precision: 0.6194 | Predicted: {np.int64(0): 14491, np.int64(1): 58278, np.int64(2): 90018} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.5083 | Precision: 0.5856 | Predicted: {np.int64(0): 14071, np.int64(1): 60581, np.int64(2): 88135} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 10/50] Starting Training...
+Epoch 10 Completed | Avg Train Loss: 2.2814
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.5931 | Precision: 0.5925 | Predicted: {np.int64(0): 51366, np.int64(1): 49063, np.int64(2): 62358} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.5860 | Precision: 0.5855 | Predicted: {np.int64(0): 51372, np.int64(1): 49056, np.int64(2): 62359} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.5820 | Precision: 0.5841 | Predicted: {np.int64(0): 53867, np.int64(1): 46562, np.int64(2): 62358} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 11/50] Starting Training...
+Epoch 11 Completed | Avg Train Loss: 2.3400
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.4044 | Precision: 0.3383 | Predicted: {np.int64(1): 73992, np.int64(2): 88795} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.3995 | Precision: 0.3341 | Predicted: {np.int64(1): 73996, np.int64(2): 88791} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.3864 | Precision: 0.3230 | Predicted: {np.int64(1): 73990, np.int64(2): 88797} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 12/50] Starting Training...
+Epoch 12 Completed | Avg Train Loss: 2.5989
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.4393 | Precision: 0.4070 | Predicted: {np.int64(1): 117133, np.int64(2): 45654} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.4334 | Precision: 0.4013 | Predicted: {np.int64(1): 117134, np.int64(2): 45653} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.4238 | Precision: 0.4015 | Predicted: {np.int64(1): 120021, np.int64(2): 42766} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 13/50] Starting Training...
+Epoch 13 Completed | Avg Train Loss: 2.7831
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.4284 | Precision: 0.4545 | Predicted: {np.int64(0): 128850, np.int64(1): 1203, np.int64(2): 32734} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.4237 | Precision: 0.4496 | Predicted: {np.int64(0): 128850, np.int64(1): 1207, np.int64(2): 32730} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.4113 | Precision: 0.4305 | Predicted: {np.int64(0): 128850, np.int64(1): 1160, np.int64(2): 32777} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 14/50] Starting Training...
+Epoch 14 Completed | Avg Train Loss: 2.7384
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.4285 | Precision: 0.3852 | Predicted: {np.int64(0): 108977, np.int64(2): 53810} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.4253 | Precision: 0.3819 | Predicted: {np.int64(0): 108971, np.int64(2): 53816} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.4182 | Precision: 0.3745 | Predicted: {np.int64(0): 108972, np.int64(2): 53815} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 15/50] Starting Training...
+Epoch 15 Completed | Avg Train Loss: 3.1325
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.1667 | Precision: 0.1111 | Predicted: {np.int64(0): 162783, np.int64(2): 4} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.1667 | Precision: 0.1111 | Predicted: {np.int64(0): 162786, np.int64(2): 1} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.1663 | Precision: 0.1447 | Predicted: {np.int64(0): 469, np.int64(1): 162318} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 16/50] Starting Training...
+Epoch 16 Completed | Avg Train Loss: 2.3470
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.5844 | Precision: 0.5821 | Predicted: {np.int64(0): 40415, np.int64(1): 67460, np.int64(2): 54912} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.5761 | Precision: 0.5736 | Predicted: {np.int64(0): 40326, np.int64(1): 67458, np.int64(2): 55003} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.4496 | Precision: 0.4920 | Predicted: {np.int64(0): 635, np.int64(1): 107236, np.int64(2): 54916} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 17/50] Starting Training...
+Epoch 17 Completed | Avg Train Loss: 2.0119
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.3273 | Precision: 0.5943 | Predicted: {np.int64(0): 2357, np.int64(1): 48703, np.int64(2): 111727} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.3351 | Precision: 0.6008 | Predicted: {np.int64(0): 2355, np.int64(1): 50319, np.int64(2): 110113} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.3345 | Precision: 0.5976 | Predicted: {np.int64(0): 2348, np.int64(1): 52979, np.int64(2): 107460} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 18/50] Starting Training...
+Epoch 18 Completed | Avg Train Loss: 1.9376
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.5797 | Precision: 0.5842 | Predicted: {np.int64(0): 51302, np.int64(1): 63139, np.int64(2): 48346} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.5755 | Precision: 0.5799 | Predicted: {np.int64(0): 51307, np.int64(1): 63158, np.int64(2): 48322} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.5640 | Precision: 0.5682 | Predicted: {np.int64(0): 51380, np.int64(1): 63239, np.int64(2): 48168} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 19/50] Starting Training...
+Epoch 19 Completed | Avg Train Loss: 2.1178
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.5445 | Precision: 0.6329 | Predicted: {np.int64(0): 14559, np.int64(1): 104331, np.int64(2): 43897} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.5392 | Precision: 0.6302 | Predicted: {np.int64(0): 14398, np.int64(1): 104331, np.int64(2): 44058} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.5234 | Precision: 0.6142 | Predicted: {np.int64(0): 14387, np.int64(1): 104321, np.int64(2): 44079} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 20/50] Starting Training...
+Epoch 20 Completed | Avg Train Loss: 2.1002
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.4076 | Precision: 0.4937 | Predicted: {np.int64(0): 336, np.int64(1): 88342, np.int64(2): 74109} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.3946 | Precision: 0.3512 | Predicted: {np.int64(0): 2437, np.int64(1): 86241, np.int64(2): 74109} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.3786 | Precision: 0.3303 | Predicted: {np.int64(0): 3479, np.int64(1): 85268, np.int64(2): 74040} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 21/50] Starting Training...
+Epoch 21 Completed | Avg Train Loss: 2.0698
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.5025 | Precision: 0.6147 | Predicted: {np.int64(0): 5873, np.int64(1): 104072, np.int64(2): 52842} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.4589 | Precision: 0.4539 | Predicted: {np.int64(0): 777, np.int64(1): 109174, np.int64(2): 52836} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.4432 | Precision: 0.6179 | Predicted: {np.int64(0): 82, np.int64(1): 109929, np.int64(2): 52776} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 22/50] Starting Training...
+Epoch 22 Completed | Avg Train Loss: 2.1932
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.5822 | Precision: 0.5828 | Predicted: {np.int64(0): 41190, np.int64(1): 70091, np.int64(2): 51506} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.5726 | Precision: 0.5734 | Predicted: {np.int64(0): 41238, np.int64(1): 70043, np.int64(2): 51506} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.5513 | Precision: 0.5525 | Predicted: {np.int64(0): 41189, np.int64(1): 70091, np.int64(2): 51507} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 23/50] Starting Training...
+Epoch 23 Completed | Avg Train Loss: 2.2150
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.4616 | Precision: 0.6644 | Predicted: {np.int64(0): 785, np.int64(1): 106470, np.int64(2): 55532} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.4538 | Precision: 0.6330 | Predicted: {np.int64(0): 694, np.int64(1): 106603, np.int64(2): 55490} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.4511 | Precision: 0.6025 | Predicted: {np.int64(0): 933, np.int64(1): 108443, np.int64(2): 53411} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 24/50] Starting Training...
+Epoch 24 Completed | Avg Train Loss: 2.2792
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.4553 | Precision: 0.5367 | Predicted: {np.int64(0): 3, np.int64(1): 117675, np.int64(2): 45109} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.4486 | Precision: 0.5303 | Predicted: {np.int64(0): 3, np.int64(1): 117676, np.int64(2): 45108} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.4334 | Precision: 0.4880 | Predicted: {np.int64(0): 4, np.int64(1): 117675, np.int64(2): 45108} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 25/50] Starting Training...
+Epoch 25 Completed | Avg Train Loss: 2.3156
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.5245 | Precision: 0.6387 | Predicted: {np.int64(0): 9600, np.int64(1): 106376, np.int64(2): 46811} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.5170 | Precision: 0.6306 | Predicted: {np.int64(0): 9653, np.int64(1): 106321, np.int64(2): 46813} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.5025 | Precision: 0.6146 | Predicted: {np.int64(0): 9892, np.int64(1): 106078, np.int64(2): 46817} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 26/50] Starting Training...
+Epoch 26 Completed | Avg Train Loss: 2.1865
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.3649 | Precision: 0.4249 | Predicted: {np.int64(0): 9114, np.int64(1): 57554, np.int64(2): 96119} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.3592 | Precision: 0.4340 | Predicted: {np.int64(0): 8031, np.int64(1): 58689, np.int64(2): 96067} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.3821 | Precision: 0.4166 | Predicted: {np.int64(0): 39599, np.int64(1): 27137, np.int64(2): 96051} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 27/50] Starting Training...
+Epoch 27 Completed | Avg Train Loss: 2.2408
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.4428 | Precision: 0.5457 | Predicted: {np.int64(0): 5315, np.int64(1): 89426, np.int64(2): 68046} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.4592 | Precision: 0.5672 | Predicted: {np.int64(0): 7985, np.int64(1): 86764, np.int64(2): 68038} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.4216 | Precision: 0.4173 | Predicted: {np.int64(0): 54216, np.int64(1): 40550, np.int64(2): 68021} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 28/50] Starting Training...
+Epoch 28 Completed | Avg Train Loss: 2.5361
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.2978 | Precision: 0.3779 | Predicted: {np.int64(0): 43206, np.int64(1): 662, np.int64(2): 118919} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.2967 | Precision: 0.4044 | Predicted: {np.int64(0): 43223, np.int64(1): 643, np.int64(2): 118921} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.2931 | Precision: 0.4807 | Predicted: {np.int64(0): 43553, np.int64(1): 306, np.int64(2): 118928} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 29/50] Starting Training...
+Epoch 29 Completed | Avg Train Loss: 3.2005
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.1667 | Precision: 0.1111 | Predicted: {np.int64(2): 162787} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.1667 | Precision: 0.1111 | Predicted: {np.int64(2): 162787} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.1667 | Precision: 0.1111 | Predicted: {np.int64(2): 162787} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 30/50] Starting Training...
+Epoch 30 Completed | Avg Train Loss: 2.7518
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.4716 | Precision: 0.4769 | Predicted: {np.int64(0): 44704, np.int64(1): 43680, np.int64(2): 74403} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.4669 | Precision: 0.4720 | Predicted: {np.int64(0): 44698, np.int64(1): 43747, np.int64(2): 74342} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.4591 | Precision: 0.4630 | Predicted: {np.int64(0): 44875, np.int64(1): 44593, np.int64(2): 73319} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 31/50] Starting Training...
+Epoch 31 Completed | Avg Train Loss: 2.1068
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.4128 | Precision: 0.3508 | Predicted: {np.int64(1): 95933, np.int64(2): 66854} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.4091 | Precision: 0.3477 | Predicted: {np.int64(1): 95940, np.int64(2): 66847} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.3986 | Precision: 0.3388 | Predicted: {np.int64(1): 95946, np.int64(2): 66841} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 32/50] Starting Training...
+Epoch 32 Completed | Avg Train Loss: 2.1204
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.3982 | Precision: 0.4198 | Predicted: {np.int64(0): 47179, np.int64(1): 37341, np.int64(2): 78267} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.2996 | Precision: 0.4894 | Predicted: {np.int64(0): 2164, np.int64(1): 82352, np.int64(2): 78271} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.2995 | Precision: 0.5634 | Predicted: {np.int64(0): 2037, np.int64(1): 82273, np.int64(2): 78477} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 33/50] Starting Training...
+Epoch 33 Completed | Avg Train Loss: 2.1734
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.3414 | Precision: 0.5811 | Predicted: {np.int64(0): 3329, np.int64(1): 140509, np.int64(2): 18949} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.3351 | Precision: 0.5516 | Predicted: {np.int64(0): 3425, np.int64(1): 140410, np.int64(2): 18952} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.3222 | Precision: 0.4996 | Predicted: {np.int64(0): 3458, np.int64(1): 140374, np.int64(2): 18955} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 34/50] Starting Training...
+Epoch 34 Completed | Avg Train Loss: 2.8138
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.2574 | Precision: 0.3873 | Predicted: {np.int64(0): 19023, np.int64(1): 141672, np.int64(2): 2092} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.2580 | Precision: 0.3943 | Predicted: {np.int64(0): 19085, np.int64(1): 141621, np.int64(2): 2081} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.2604 | Precision: 0.4181 | Predicted: {np.int64(0): 19153, np.int64(1): 141592, np.int64(2): 2042} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 35/50] Starting Training...
+Epoch 35 Completed | Avg Train Loss: 2.8079
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.3715 | Precision: 0.3857 | Predicted: {np.int64(0): 51430, np.int64(1): 25550, np.int64(2): 85807} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.3684 | Precision: 0.3829 | Predicted: {np.int64(0): 51408, np.int64(1): 25575, np.int64(2): 85804} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.3659 | Precision: 0.3814 | Predicted: {np.int64(0): 47365, np.int64(1): 29435, np.int64(2): 85987} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 36/50] Starting Training...
+Epoch 36 Completed | Avg Train Loss: 2.2413
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.5582 | Precision: 0.5573 | Predicted: {np.int64(0): 39110, np.int64(1): 69870, np.int64(2): 53807} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.5476 | Precision: 0.5467 | Predicted: {np.int64(0): 39118, np.int64(1): 69872, np.int64(2): 53797} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.5255 | Precision: 0.5250 | Predicted: {np.int64(0): 39144, np.int64(1): 69859, np.int64(2): 53784} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 37/50] Starting Training...
+Epoch 37 Completed | Avg Train Loss: 2.5091
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.4481 | Precision: 0.4266 | Predicted: {np.int64(1): 120278, np.int64(2): 42509} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.4409 | Precision: 0.4195 | Predicted: {np.int64(1): 120279, np.int64(2): 42508} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.4260 | Precision: 0.4048 | Predicted: {np.int64(1): 120278, np.int64(2): 42509} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 38/50] Starting Training...
+Epoch 38 Completed | Avg Train Loss: 2.8325
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.3476 | Precision: 0.4079 | Predicted: {np.int64(0): 8066, np.int64(1): 48771, np.int64(2): 105950} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.3423 | Precision: 0.3987 | Predicted: {np.int64(0): 8079, np.int64(1): 48756, np.int64(2): 105952} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.3354 | Precision: 0.3894 | Predicted: {np.int64(0): 8434, np.int64(1): 48400, np.int64(2): 105953} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 39/50] Starting Training...
+Epoch 39 Completed | Avg Train Loss: 2.5125
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.5250 | Precision: 0.5232 | Predicted: {np.int64(0): 48324, np.int64(1): 50993, np.int64(2): 63470} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.5191 | Precision: 0.5175 | Predicted: {np.int64(0): 48326, np.int64(1): 51035, np.int64(2): 63426} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.5040 | Precision: 0.5026 | Predicted: {np.int64(0): 48237, np.int64(1): 51229, np.int64(2): 63321} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 40/50] Starting Training...
+Epoch 40 Completed | Avg Train Loss: 2.1319
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.5983 | Precision: 0.6080 | Predicted: {np.int64(0): 50299, np.int64(1): 67001, np.int64(2): 45487} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.5942 | Precision: 0.6042 | Predicted: {np.int64(0): 49804, np.int64(1): 67614, np.int64(2): 45369} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.5872 | Precision: 0.5959 | Predicted: {np.int64(0): 52466, np.int64(1): 64952, np.int64(2): 45369} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+>>> NEW BEST MODEL SAVED! <<<
+
+[Epoch 41/50] Starting Training...
+Epoch 41 Completed | Avg Train Loss: 2.1067
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.4602 | Precision: 0.5040 | Predicted: {np.int64(0): 172, np.int64(1): 114995, np.int64(2): 47620} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.4524 | Precision: 0.4325 | Predicted: {np.int64(0): 59, np.int64(1): 115102, np.int64(2): 47626} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.4365 | Precision: 0.4107 | Predicted: {np.int64(0): 67, np.int64(1): 115084, np.int64(2): 47636} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 42/50] Starting Training...
+Epoch 42 Completed | Avg Train Loss: 1.9934
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.6198 | Precision: 0.6255 | Predicted: {np.int64(0): 54298, np.int64(1): 60145, np.int64(2): 48344} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.6002 | Precision: 0.6085 | Predicted: {np.int64(0): 54350, np.int64(1): 61983, np.int64(2): 46454} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.5800 | Precision: 0.5885 | Predicted: {np.int64(0): 57716, np.int64(1): 58594, np.int64(2): 46477} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+>>> NEW BEST MODEL SAVED! <<<
+
+[Epoch 43/50] Starting Training...
+Epoch 43 Completed | Avg Train Loss: 2.1479
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.6312 | Precision: 0.6378 | Predicted: {np.int64(0): 52314, np.int64(1): 63672, np.int64(2): 46801} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.6192 | Precision: 0.6257 | Predicted: {np.int64(0): 51713, np.int64(1): 64258, np.int64(2): 46816} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.5799 | Precision: 0.5872 | Predicted: {np.int64(0): 49714, np.int64(1): 66611, np.int64(2): 46462} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+>>> NEW BEST MODEL SAVED! <<<
+
+[Epoch 44/50] Starting Training...
+Epoch 44 Completed | Avg Train Loss: 2.0337
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.5254 | Precision: 0.5220 | Predicted: {np.int64(0): 31416, np.int64(1): 73439, np.int64(2): 57932} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.5174 | Precision: 0.5146 | Predicted: {np.int64(0): 31406, np.int64(1): 73400, np.int64(2): 57981} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.4991 | Precision: 0.4976 | Predicted: {np.int64(0): 31421, np.int64(1): 73610, np.int64(2): 57756} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 45/50] Starting Training...
+Epoch 45 Completed | Avg Train Loss: 2.5388
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.6060 | Precision: 0.6552 | Predicted: {np.int64(0): 79532, np.int64(1): 29576, np.int64(2): 53679} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.5994 | Precision: 0.6476 | Predicted: {np.int64(0): 79545, np.int64(1): 29563, np.int64(2): 53679} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.5778 | Precision: 0.6223 | Predicted: {np.int64(0): 79549, np.int64(1): 29558, np.int64(2): 53680} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 46/50] Starting Training...
+Epoch 46 Completed | Avg Train Loss: 2.6316
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.6242 | Precision: 0.7112 | Predicted: {np.int64(0): 92114, np.int64(1): 25002, np.int64(2): 45671} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.6176 | Precision: 0.7033 | Predicted: {np.int64(0): 92114, np.int64(1): 25002, np.int64(2): 45671} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.5959 | Precision: 0.6761 | Predicted: {np.int64(0): 92114, np.int64(1): 25002, np.int64(2): 45671} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+>>> NEW BEST MODEL SAVED! <<<
+
+[Epoch 47/50] Starting Training...
+Epoch 47 Completed | Avg Train Loss: 2.8149
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.4914 | Precision: 0.6164 | Predicted: {np.int64(0): 5321, np.int64(1): 62120, np.int64(2): 95346} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.4886 | Precision: 0.6169 | Predicted: {np.int64(0): 5561, np.int64(1): 61851, np.int64(2): 95375} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.4750 | Precision: 0.6025 | Predicted: {np.int64(0): 5588, np.int64(1): 61825, np.int64(2): 95374} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 48/50] Starting Training...
+Epoch 48 Completed | Avg Train Loss: 2.1045
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.6027 | Precision: 0.6078 | Predicted: {np.int64(0): 52935, np.int64(1): 61600, np.int64(2): 48252} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.5960 | Precision: 0.6009 | Predicted: {np.int64(0): 53354, np.int64(1): 61154, np.int64(2): 48279} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.5766 | Precision: 0.5811 | Predicted: {np.int64(0): 53448, np.int64(1): 60890, np.int64(2): 48449} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 49/50] Starting Training...
+Epoch 49 Completed | Avg Train Loss: 2.1708
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.4656 | Precision: 0.5882 | Predicted: {np.int64(0): 297, np.int64(1): 111109, np.int64(2): 51381} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.4580 | Precision: 0.5528 | Predicted: {np.int64(0): 294, np.int64(1): 111113, np.int64(2): 51380} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.4414 | Precision: 0.4758 | Predicted: {np.int64(0): 245, np.int64(1): 111114, np.int64(2): 51428} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+[Epoch 50/50] Starting Training...
+Epoch 50 Completed | Avg Train Loss: 2.1202
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.5072 | Precision: 0.6013 | Predicted: {np.int64(0): 8301, np.int64(1): 104099, np.int64(2): 50387} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 20s | Macro F1: 0.5939 | Precision: 0.5961 | Predicted: {np.int64(0): 52691, np.int64(1): 59709, np.int64(2): 50387} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+Horizon 50s | Macro F1: 0.4864 | Precision: 0.5862 | Predicted: {np.int64(0): 8386, np.int64(1): 104014, np.int64(2): 50387} | Actual: {np.int64(0): 54271, np.int64(1): 54258, np.int64(2): 54258}
+
+=== FINAL TEST (loading best_deeplob_model.pth) ===
+
+--- EVALUATION RESULTS ---
+Horizon 10s | Macro F1: 0.6295 | Precision: 0.6622 | Predicted: {np.int64(0): 85391, np.int64(1): 42399, np.int64(2): 54559} | Actual: {np.int64(0): 60789, np.int64(1): 60780, np.int64(2): 60780}
+Horizon 20s | Macro F1: 0.6198 | Precision: 0.6512 | Predicted: {np.int64(0): 85392, np.int64(1): 42398, np.int64(2): 54559} | Actual: {np.int64(0): 60789, np.int64(1): 60780, np.int64(2): 60780}
+Horizon 50s | Macro F1: 0.5883 | Precision: 0.6166 | Predicted: {np.int64(0): 85392, np.int64(1): 42398, np.int64(2): 54559} | Actual: {np.int64(0): 60789, np.int64(1): 60780, np.int64(2): 60780}
+
+ALL DONE.
