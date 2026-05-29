@@ -1,5 +1,42 @@
-alpaca*
+# Python environments
+.venv/
 .venv*
-.venv
-*.venv
+venv/
 venv*
+env/
+ENV/
+
+# Python cache and tooling noise
+__pycache__/
+*.py[cod]
+*.pyd
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local secrets / scratch config
+alpaca*
+
+# Generated data and artifacts
+code/brain/src/parsed/
+code/brain/src/tensors/
+code/brain/src/pcap/
+code/brain/src/**/__pycache__/
+code/brain/src/DeepLOB/*.ckpt
+code/brain/src/DeepLOB/*.onnx
+
+# Build outputs
+build/
+dist/
+*.egg-info/
