@@ -514,14 +514,14 @@ def main():
     # sizer = FixedFractionSizer(fraction=0.10)
     # sizer = ConfidenceWeightedSizer(fraction=0.10, conf_threshold=0.50)
     # sizer = VolatilityScaledSizer(base_fraction=0.10, lookback=50, vol_scale=100.0)
-    # sizer = KellySizer(max_fraction=0.20, min_trades=10)
+    sizer = KellySizer(max_fraction=0.20, min_trades=10)
+    # sizer = FixedFractionSizer(fraction=0.10)
     #
     # risk = PassThroughRiskManager()
     # risk = StopLossRiskManager(stop_loss_pct=0.02)
     # risk = MaxExposureRiskManager(max_exposure_pct=0.30)
     # risk = DrawdownLimitRiskManager(max_drawdown_pct=0.10)
     # risk = VixFilterRiskManager(daily_loss_limit=0.03, vol_threshold=0.005)
-    sizer = FixedFractionSizer(fraction=0.10)
     risk = PassThroughRiskManager()
 
     run_backtest(model, sizer, risk)
