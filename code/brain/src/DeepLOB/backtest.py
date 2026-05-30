@@ -60,6 +60,7 @@ CONFIG = {
     "conf_threshold": 0.50,    # only act when softmax prob >= this; else hold.
     "entry_delay": 5,          # execute `delay` snapshots after the signal (slippage).
     "close_on_flat": False,    # if True, a confident 'flat' closes the position.
+    "stop_loss_pct": 0.0,      # 0 = disabled; e.g. 0.02 closes on 2% adverse move from entry
 
     "device": "cuda" if torch.cuda.is_available() else "cpu",
     "verbose_trades": False,   # print every trade (chatty); False prints per-day only.
@@ -97,6 +98,66 @@ class FixedSharesSizer(Sizer):
         return float(self.shares)
 
 
+class ConfidenceWeightedSizer(Sizer):
+    """Scale size linearly from 0 at conf_threshold to fraction at confidence=1.0."""
+    def __init__(self, fraction=0.10, conf_threshold=0.50):
+        self.fraction = fraction
+        self.conf_threshold = conf_threshold
+
+    def size(self, equity, price, side, confidence, ctx):
+        if price <= 0 or confidence <= self.conf_threshold:
+            return 0.0
+        ramp = (confidence - self.conf_threshold) / (1.0 - self.conf_threshold)
+        notional = self.fraction * equity * ramp
+        return float(int(notional / price))
+
+
+class VolatilityScaledSizer(Sizer):
+    """Inverse-scale by trailing mid-price volatility.  high vol -> smaller size."""
+    def __init__(self, base_fraction=0.10, lookback=50, vol_scale=100.0):
+        self.base_fraction = base_fraction
+        self.lookback = lookback
+        self.vol_scale = vol_scale
+
+    def size(self, equity, price, side, confidence, ctx):
+        if price <= 0:
+            return 0.0
+        recent = ctx.get("recent_mids", [])
+        if len(recent) < self.lookback:
+            return float(int(self.base_fraction * equity / price))
+        rets = np.diff(recent[-self.lookback:]) / recent[-self.lookback:-1]
+        vol = np.std(rets)
+        scale = 1.0 / (1.0 + self.vol_scale * vol)
+        notional = self.base_fraction * equity * scale
+        return float(int(notional / price))
+
+
+class KellySizer(Sizer):
+    """Fractional Kelly sizing based on empirical win rate and avg win/loss ratio.
+    Needs at least `min_trades` in ctx['trade_history'] before sizing trades."""
+    def __init__(self, max_fraction=0.20, min_trades=10):
+        self.max_fraction = max_fraction
+        self.min_trades = min_trades
+
+    def size(self, equity, price, side, confidence, ctx):
+        if price <= 0:
+            return 0.0
+        history = ctx.get("trade_history", [])
+        if len(history) < self.min_trades:
+            return 0.0
+        wins = [t for t in history if t["pnl"] > 0]
+        losses = [t for t in history if t["pnl"] <= 0]
+        win_rate = len(wins) / len(history)
+        avg_win = np.mean([t["pnl"] for t in wins]) if wins else 0.0
+        avg_loss = abs(np.mean([t["pnl"] for t in losses])) if losses else 1.0
+        if avg_loss == 0 or avg_win == 0:
+            return 0.0
+        kelly = win_rate - (1.0 - win_rate) * (avg_loss / avg_win)
+        kelly = max(0.0, min(kelly, self.max_fraction))
+        notional = kelly * equity
+        return float(int(notional / price))
+
+
 # ============================================================================
 # PLUGGABLE RISK MANAGEMENT — replace with your risk code later
 # ============================================================================
@@ -109,6 +170,79 @@ class RiskManager:
 class PassThroughRiskManager(RiskManager):
     """No constraints — accept every trade as proposed."""
     def allow(self, equity, price, side, shares, open_positions, ctx):
+        return shares
+
+
+class StopLossRiskManager(RiskManager):
+    """Block re-entry in a direction that just got stopped out."""
+    def __init__(self, stop_loss_pct=0.02):
+        self.stop_loss_pct = stop_loss_pct
+
+    def allow(self, equity, price, side, shares, open_positions, ctx):
+        ticker = ctx.get("ticker")
+        pos = open_positions.get(ticker)
+        if pos:
+            pnl_pct = pos.side * (price - pos.entry) / pos.entry
+            if pnl_pct <= -self.stop_loss_pct:
+                return 0.0
+        return shares
+
+
+class MaxExposureRiskManager(RiskManager):
+    """Cap total notional across all tickers as a fraction of equity."""
+    def __init__(self, max_exposure_pct=0.30):
+        self.max_exposure = max_exposure_pct
+
+    def allow(self, equity, price, side, shares, open_positions, ctx):
+        current = sum(p.shares * p.entry for p in open_positions.values())
+        new_notional = shares * price
+        total = current + new_notional
+        if total > self.max_exposure * equity:
+            remaining = self.max_exposure * equity - current
+            if remaining <= 0:
+                return 0.0
+            shares = float(int(remaining / price))
+        return shares
+
+
+class DrawdownLimitRiskManager(RiskManager):
+    """Stop all trading when equity drops X% below trailing peak."""
+    def __init__(self, max_drawdown_pct=0.10):
+        self.max_drawdown = max_drawdown_pct
+        self.peak_equity = None
+
+    def allow(self, equity, price, side, shares, open_positions, ctx):
+        if self.peak_equity is None or equity > self.peak_equity:
+            self.peak_equity = equity
+        dd = (self.peak_equity - equity) / self.peak_equity
+        if dd >= self.max_drawdown:
+            return 0.0
+        return shares
+
+
+class VixFilterRiskManager(RiskManager):
+    """Skip trading on days with high trailing volatility or daily loss breach."""
+    def __init__(self, daily_loss_limit=0.03, vol_threshold=0.005, vol_lookback=20):
+        self.daily_loss_limit = daily_loss_limit
+        self.vol_threshold = vol_threshold
+        self.vol_lookback = vol_lookback
+        self._day_start = {}
+        self._current_day = None
+
+    def allow(self, equity, price, side, shares, open_positions, ctx):
+        day = ctx.get("day")
+        if day != self._current_day:
+            self._day_start[day] = equity
+            self._current_day = day
+        day_return = (equity - self._day_start.get(day, equity)) / max(self._day_start.get(day, equity), 1.0)
+        if day_return < -self.daily_loss_limit:
+            return 0.0
+
+        recent = ctx.get("recent_mids", [])
+        if len(recent) > self.vol_lookback:
+            rets = np.diff(recent[-self.vol_lookback:]) / recent[-self.vol_lookback-1:-1]
+            if np.std(rets) > self.vol_threshold:
+                return 0.0
         return shares
 
 
@@ -240,6 +374,14 @@ def simulate_ticker_day(model, pf, x_path, mid_path, signal_path,
         if not np.isfinite(price) or price <= 0:
             continue
 
+        # Stop-loss: close position if adverse move exceeds threshold.
+        #  if CONFIG["stop_loss_pct"] > 0:
+        #    sl_cur = pf.positions.get(ticker)
+        #    if sl_cur is not None:
+        #        sl_pnl = sl_cur.side * (price - sl_cur.entry) / sl_cur.entry
+        #        if sl_pnl <= -CONFIG["stop_loss_pct"]:
+        #            pf.close(ticker, price, exec_i, day, "stop-loss")
+
         pred = int(preds[i])
         conf = float(confs[i])
         confident = conf >= thr
@@ -260,18 +402,24 @@ def simulate_ticker_day(model, pf, x_path, mid_path, signal_path,
             continue
 
         # Have a confident directional signal.
+        ctx = {
+            "ticker": ticker,
+            "recent_mids": mid_exec[max(0, i - 100): i + 1].tolist(),
+            "trade_history": pf.trades[-200:],
+            "day": day,
+        }
         if cur is None:
-            shares = sizer.size(pf.equity, price, desired, conf, ctx={"ticker": ticker})
+            shares = sizer.size(pf.equity, price, desired, conf, ctx=ctx)
             shares = risk.allow(pf.equity, price, desired, shares,
-                                pf.positions, ctx={"ticker": ticker})
+                                pf.positions, ctx=ctx)
             if shares and shares > 0:
                 pf.open(ticker, desired, price, shares, exec_i, day, conf)
         elif cur.side != desired:
             # Flip: close current, open opposite.
             pf.close(ticker, price, exec_i, day, "flip")
-            shares = sizer.size(pf.equity, price, desired, conf, ctx={"ticker": ticker})
+            shares = sizer.size(pf.equity, price, desired, conf, ctx=ctx)
             shares = risk.allow(pf.equity, price, desired, shares,
-                                pf.positions, ctx={"ticker": ticker})
+                                pf.positions, ctx=ctx)
             if shares and shares > 0:
                 pf.open(ticker, desired, price, shares, exec_i, day, conf)
         # else: same side already on -> hold.
@@ -362,7 +510,17 @@ def main():
     model.eval()
     print(f"Loaded {ckpt} on {device}")
 
-    # ---- Swap these two lines for your sizing / risk modules later ----
+    # ---- Pick one sizer and one risk manager ----
+    # sizer = FixedFractionSizer(fraction=0.10)
+    # sizer = ConfidenceWeightedSizer(fraction=0.10, conf_threshold=0.50)
+    # sizer = VolatilityScaledSizer(base_fraction=0.10, lookback=50, vol_scale=100.0)
+    # sizer = KellySizer(max_fraction=0.20, min_trades=10)
+    #
+    # risk = PassThroughRiskManager()
+    # risk = StopLossRiskManager(stop_loss_pct=0.02)
+    # risk = MaxExposureRiskManager(max_exposure_pct=0.30)
+    # risk = DrawdownLimitRiskManager(max_drawdown_pct=0.10)
+    # risk = VixFilterRiskManager(daily_loss_limit=0.03, vol_threshold=0.005)
     sizer = FixedFractionSizer(fraction=0.10)
     risk = PassThroughRiskManager()
 
