@@ -449,7 +449,7 @@ def predict_day(model, X, device, batch=512):
 # SIMULATE ONE TICKER-DAY
 # ============================================================================
 def simulate_ticker_day(model, pf, paths, ticker, day, sizer, ensemble,
-                        device, prices_now):
+                        device, prices_now, telemetry=None):
     xp, mp, sp = paths
     X = torch.load(xp, weights_only=True)
     mid = torch.load(mp, weights_only=True).numpy()
@@ -458,6 +458,14 @@ def simulate_ticker_day(model, pf, paths, ticker, day, sizer, ensemble,
     keep = _reconstruct_keep(signal, len(X))
     mid_exec = mid[keep]
     edge, conf, side = predict_day(model, X, device)
+
+    # Record the full per-window series so the notebook can plot confidence,
+    # edge, and price over the day (purely diagnostic; does not affect trading).
+    if telemetry is not None:
+        telemetry.setdefault(day, {})[ticker] = {
+            "edge": edge.copy(), "conf": conf.copy(),
+            "side": side.copy(), "mid_exec": mid_exec.copy(),
+        }
     n = len(edge)
     delay = CONFIG["entry_delay"]
     min_edge = CONFIG["min_edge_to_trade"]
@@ -548,8 +556,9 @@ def _metrics(pf, daily, init_cap):
     for _, dp, e, _, _ in daily:
         peak = max(peak, e)
         mdd = min(mdd, 100.0 * (e - peak) / peak)
-    return {"total": total, "tret": tret, "sharpe": sharpe, "win_rate": wr,
-            "profit_factor": pf_ratio, "max_dd": mdd, "n_closing": len(closing)}
+    return {"total": total, "tret": tret, "return_pct": tret, "sharpe": sharpe,
+            "win_rate": wr, "profit_factor": pf_ratio,
+            "max_dd": mdd, "max_drawdown_pct": mdd, "n_closing": len(closing)}
 
 
 def run_backtest(model, sizer, ensemble):
@@ -568,6 +577,7 @@ def run_backtest(model, sizer, ensemble):
     print(f"{'=' * 80}\nTest days: {dates}\n")
 
     daily = []
+    telemetry = {}
     for day in dates:
         eq_before = pf.equity
         tr_before = len(pf.trades)
@@ -579,7 +589,7 @@ def run_backtest(model, sizer, ensemble):
             if not (os.path.exists(xp) and os.path.exists(mp) and os.path.exists(sp)):
                 continue
             simulate_ticker_day(model, pf, (xp, mp, sp), tic, day,
-                                sizer, ensemble, device, prices_now)
+                                sizer, ensemble, device, prices_now, telemetry)
         day_pnl = pf.equity - eq_before
         ntr = len(pf.trades) - tr_before
         ret = 100.0 * day_pnl / eq_before if eq_before else 0.0
@@ -600,7 +610,17 @@ def run_backtest(model, sizer, ensemble):
               "  ".join(f"{mn.name}:{w:.2f}"
                         for mn, w in zip(ensemble.managers, wnorm)))
     print(f"{'-' * 80}\n")
-    return {"daily": daily, "trades": pf.trades, "final_equity": pf.equity, **m}
+    # Tag every realizing trade as a hit (pnl>0) or miss (pnl<0) for the notebook.
+    for t in pf.trades:
+        if t["pnl"] > 0:
+            t["outcome"] = "hit"
+        elif t["pnl"] < 0:
+            t["outcome"] = "miss"
+        else:
+            t["outcome"] = "flat"
+
+    return {"daily": daily, "trades": pf.trades, "final_equity": pf.equity,
+            "telemetry": telemetry, **m}
 
 
 def build_default_ensemble():

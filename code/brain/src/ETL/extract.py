@@ -29,7 +29,7 @@ def extract_day(date : str) :
         end_date=str(date), 
         download_dir="../pcap", 
         parsed_folder="../parsed", 
-        symbol="../symbols.txt", 
+        symbol="./symbols.txt", 
         download=True, 
     )
 
