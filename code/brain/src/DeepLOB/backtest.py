@@ -52,7 +52,7 @@ CONFIG = {
 
     # Which test days to use: the LAST `test_days` dates found (chronological).
     # Set test_dates explicitly to override (list of 'YYYY-MM-DD').
-    "test_days": 5,
+    "test_days": 10,
     "test_dates": None,
 
     # Trading rule
