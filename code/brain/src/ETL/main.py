@@ -30,11 +30,8 @@ if __name__ == "__main__" :
         ran = randotendays()
         for r in ran :
             dates.append(str(datetime(year=YEAR,month=i, day=r))[:10])
-    dates = ["2024-11-04",
-             "2024-11-05",
-             "2024-11-18",
-             "2024-12-23",
-             "2025-04-02"]    
+    # choose whatever dates you like and fill this array, or you can change the loader to answer a range of days
+    dates = []    
     for i in range(len(dates)) :
         d = dates[i]
         if return_csv_path(d) == None :
